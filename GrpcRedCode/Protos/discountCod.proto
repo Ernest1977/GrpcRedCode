@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcRedCode";
+
+package greet;
+
+// The greeting service definition.
+service Discount {
+  rpc GenerateDiscountCodes (GenerateRequest) returns (GenerateResponse);
+  rpc UseDiscountCode (UseRequest) returns (UseResponse);
+}
+
+// The request message containing the user's name.
+message GenerateRequest {
+  int32 count = 1;
+}
+
+// The response message containing the greetings.
+message GenerateResponse {
+  repeated string codes = 1;
+}
+
+message UseRequest {
+	string code = 1;
+}
+
+message UseResponse {
+	bool success = 1;
+}
